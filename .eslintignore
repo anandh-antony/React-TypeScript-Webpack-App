@@ -1,0 +1,20 @@
+
+# Third Party Code 
+node_modules/**** 
+public/** 
+build/** 
+
+# Configuration files 
+package.json 
+package-lock.json
+yarn.lock
+.eslintrc 
+.env* 
+
+# builds 
+**/dist 
+
+# hooks 
+temp/ 
+.husky/ 
+logs/ 
