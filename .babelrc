@@ -16,5 +16,6 @@
         "regenerator": true
       }
     ]
-  ]
+  ],
+  "ignore": ["node_modules", "dist/*", "docs/dist/*"]
 }
