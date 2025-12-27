@@ -23,9 +23,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",
+    "@babel/plugin-transform-runtime": "^7.28.5",
     "@babel/preset-env": "^7.28.5",
     "@babel/preset-react": "^7.28.5",
     "@babel/preset-typescript": "^7.28.5",
+    "@babel/runtime": "^7.28.4",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.6.2",
+    "@types/minimatch": "^5.1.2",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "@typescript-eslint/eslint-plugin": "^8.50.1",
@@ -41,11 +45,13 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "html-webpack-plugin": "^5.6.5",
     "prettier": "^3.7.4",
+    "react-refresh": "^0.18.0",
     "style-loader": "^4.0.0",
     "typescript": "^5.9.3",
     "webpack": "^5.104.1",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.2"
+    "webpack-dev-server": "^5.2.2",
+    "webpack-merge": "^6.0.1"
   },
   "repository": {
     "type": "git",

@@ -1,45 +1,20 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { merge } = require('webpack-merge');
+const commonConfig = require('./webpack.common.js');
 
-module.exports = {
-  entry: path.resolve(__dirname, '..', './src/index.tsx'),
-  output: {
-    path: path.resolve(__dirname, '..', './build'),
-    filename: 'bundle.js',
-  },
-  mode: 'development',
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(ts|js)x?$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-          },
-        ],
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        type: 'asset/resource',
-      },
-      {
-        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-        type: 'asset/inline',
-      },
-    ],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '..', './src/index.html'),
-    }),
-  ],
-  stats: 'errors-only',
+module.exports = (envVars = {}) => {
+  const providedEnv = typeof envVars === 'string' ? envVars : envVars.env;
+  const env = providedEnv || process.env.NODE_ENV || 'dev';
+  const envPath = path.resolve(__dirname, `./webpack.${env}.js`);
+
+  let envConfig;
+  try {
+    envConfig = require(envPath);
+    // If env config exports a function, call it with envVars for flexibility
+    envConfig = typeof envConfig === 'function' ? envConfig(envVars) : envConfig;
+  } catch (err) {
+    throw new Error(`Failed to load webpack env config "${env}" from "${envPath}": ${err.message}`);
+  }
+
+  return merge(commonConfig, envConfig);
 };
