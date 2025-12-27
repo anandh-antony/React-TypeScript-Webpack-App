@@ -1,0 +1,35 @@
+{
+  "eslint.format.enable": true,
+  "eslint.nodeEnv": "development",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.suggestSelection": "first",
+  "editor.minimap.enabled": false,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "prettier.singleQuote": true,
+  "prettier.arrowParens": "always",
+  "prettier.printWidth": 150,
+  "prettier.bracketSameLine": false,
+  "files.autoSave": "off",
+  // "eslint.debug": true,
+  "eslint.lintTask.enable": true,
+  "eslint.options": {
+    "extensions": [".html", ".js", ".vue", ".jsx", ".ts", ".tsx"]
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "workbench.startupEditor": "newUntitledFile",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  }
+}
