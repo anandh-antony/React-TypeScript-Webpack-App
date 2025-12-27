@@ -44,6 +44,8 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "html-webpack-plugin": "^5.6.5",
+    "husky": "^4.3.8",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
     "react-refresh": "^0.18.0",
     "style-loader": "^4.0.0",
@@ -60,5 +62,18 @@
   "bugs": {
     "url": "https://github.com/anandh-antony/React-TypeScript-Webpack-App/issues"
   },
-  "homepage": "https://github.com/anandh-antony/React-TypeScript-Webpack-App#readme"
+  "homepage": "https://github.com/anandh-antony/React-TypeScript-Webpack-App#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json}": [
+      "eslint --fix"
+    ],
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  }
 }
